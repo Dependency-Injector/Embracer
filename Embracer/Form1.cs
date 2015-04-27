@@ -42,6 +42,9 @@ namespace Embracer
             activitiesListBox.DataSource = activities;
             activitiesListBox.ValueMember = "Id";
             activitiesListBox.DisplayMember = "Name";
+
+            List<TimePeriod> activitiesHistory = repository.GetActivitiesHistory().ToList();
+            activityHistoryGridView.DataSource = activitiesHistory;
         }
 
         private DateTime startTime;
@@ -86,6 +89,11 @@ namespace Embracer
             currentActivity.TimePeriod.Add(period);
 
             repository.UpdateActivity(currentActivity);
+        }
+
+        private void activitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

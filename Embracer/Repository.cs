@@ -32,7 +32,12 @@ namespace Embracer
         }
         public IQueryable<Activity> GetActivities()
         {
-            return context.ActivitySet.Select(p => p);
+            return context.ActivitySet;
+        }
+
+        public IQueryable<TimePeriod> GetActivitiesHistory()
+        {
+            return context.TimePeriodSet;
         }
     }
 }
