@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmbracerEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="EmbracerEntitiesContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivitySet" EntityType="EmbracerEntities.Activity" />
+    <EntitySet Name="TimePeriodSet" EntityType="EmbracerEntities.TimePeriod" />
+    <AssociationSet Name="TimePeriodActivity" Association="EmbracerEntities.TimePeriodActivity">
+      <End Role="TimePeriod" EntitySet="TimePeriodSet" />
+      <End Role="Activity" EntitySet="ActivitySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="TimePeriod" Relationship="EmbracerEntities.TimePeriodActivity" FromRole="Activity" ToRole="TimePeriod" />
+  </EntityType>
+  <EntityType Name="TimePeriod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Start" Type="DateTime" Nullable="false" />
+    <Property Name="Stop" Type="DateTime" Nullable="false" />
+    <Property Name="Interval" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Activity" Relationship="EmbracerEntities.TimePeriodActivity" FromRole="TimePeriod" ToRole="Activity" />
+  </EntityType>
+  <Association Name="TimePeriodActivity">
+    <End Type="EmbracerEntities.TimePeriod" Role="TimePeriod" Multiplicity="1" />
+    <End Type="EmbracerEntities.Activity" Role="Activity" Multiplicity="*" />
+  </Association>
+</Schema>

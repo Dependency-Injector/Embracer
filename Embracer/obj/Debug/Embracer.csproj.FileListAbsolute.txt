@@ -1,0 +1,9 @@
+D:\Projekty GIT\Embracer\Embracer\bin\Debug\Embracer.exe.config
+D:\Projekty GIT\Embracer\Embracer\bin\Debug\Embracer.exe
+D:\Projekty GIT\Embracer\Embracer\bin\Debug\Embracer.pdb
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.csprojResolveAssemblyReference.cache
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.Form1.resources
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.Properties.Resources.resources
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.csproj.GenerateResource.Cache
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.exe
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.pdb
