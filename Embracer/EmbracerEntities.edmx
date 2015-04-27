@@ -4,20 +4,54 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="EmbracerEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="EmbracerEntitiesTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="EmbracerEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EmbracerEntitiesStoreContainer">
+    <EntitySet Name="ActivitySet" EntityType="EmbracerEntities.Store.ActivitySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TimePeriodSet" EntityType="EmbracerEntities.Store.TimePeriodSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ActivityTimePeriod" Association="EmbracerEntities.Store.ActivityTimePeriod">
+      <End Role="Activity" EntitySet="ActivitySet" />
+      <End Role="TimePeriod" EntitySet="TimePeriodSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ActivitySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimePeriodSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Start" Type="datetime" Nullable="false" />
+    <Property Name="Stop" Type="datetime" Nullable="false" />
+    <Property Name="Interval" Type="smallint" Nullable="false" />
+    <Property Name="Activity_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ActivityTimePeriod">
+    <End Role="Activity" Type="EmbracerEntities.Store.ActivitySet" Multiplicity="1" />
+    <End Role="TimePeriod" Type="EmbracerEntities.Store.TimePeriodSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimePeriod">
+        <PropertyRef Name="Activity_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmbracerEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="EmbracerEntitiesContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActivitySet" EntityType="EmbracerEntities.Activity" />
           <EntitySet Name="TimePeriodSet" EntityType="EmbracerEntities.TimePeriod" />
-          <AssociationSet Name="TimePeriodActivity" Association="EmbracerEntities.TimePeriodActivity">
-            <End Role="TimePeriod" EntitySet="TimePeriodSet" />
+          <AssociationSet Name="ActivityTimePeriod" Association="EmbracerEntities.ActivityTimePeriod">
             <End Role="Activity" EntitySet="ActivitySet" />
+            <End Role="TimePeriod" EntitySet="TimePeriodSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Activity">
@@ -26,7 +60,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <NavigationProperty Name="TimePeriod" Relationship="EmbracerEntities.TimePeriodActivity" FromRole="Activity" ToRole="TimePeriod" />
+          <NavigationProperty Name="TimePeriod" Relationship="EmbracerEntities.ActivityTimePeriod" FromRole="Activity" ToRole="TimePeriod" />
         </EntityType>
         <EntityType Name="TimePeriod">
           <Key>
@@ -36,23 +70,46 @@
           <Property Name="Start" Type="DateTime" Nullable="false" />
           <Property Name="Stop" Type="DateTime" Nullable="false" />
           <Property Name="Interval" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Activity" Relationship="EmbracerEntities.TimePeriodActivity" FromRole="TimePeriod" ToRole="Activity" />
+          <NavigationProperty Name="Activity" Relationship="EmbracerEntities.ActivityTimePeriod" FromRole="TimePeriod" ToRole="Activity" />
         </EntityType>
-        <Association Name="TimePeriodActivity">
-          <End Type="EmbracerEntities.TimePeriod" Role="TimePeriod" Multiplicity="1" />
-          <End Type="EmbracerEntities.Activity" Role="Activity" Multiplicity="*" />
+        <Association Name="ActivityTimePeriod">
+          <End Type="EmbracerEntities.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="EmbracerEntities.TimePeriod" Role="TimePeriod" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="EmbracerEntities" />
-        <Alias Key="Target" Value="EmbracerEntities.Store" />
-        <EntityContainerMapping CdmEntityContainer="EmbracerEntitiesContainer" StorageEntityContainer="EmbracerEntitiesTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContainer">
+    <EntitySetMapping Name="ActivitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.Activity)">
+        <MappingFragment StoreEntitySet="ActivitySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimePeriodSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.TimePeriod)">
+        <MappingFragment StoreEntitySet="TimePeriodSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="Stop" ColumnName="Stop" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActivityTimePeriod" TypeName="EmbracerEntities.ActivityTimePeriod" StoreEntitySet="TimePeriodSet">
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Activity_Id" />
+      </EndProperty>
+      <EndProperty Name="TimePeriod">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -66,6 +123,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

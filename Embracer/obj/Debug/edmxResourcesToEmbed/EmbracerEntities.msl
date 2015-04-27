@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-  <Alias Key="Model" Value="EmbracerEntities" />
-  <Alias Key="Target" Value="EmbracerEntities.Store" />
-  <EntityContainerMapping CdmEntityContainer="EmbracerEntitiesContainer" StorageEntityContainer="EmbracerEntitiesTargetContainer" />
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContainer">
+    <EntitySetMapping Name="ActivitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.Activity)">
+        <MappingFragment StoreEntitySet="ActivitySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimePeriodSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.TimePeriod)">
+        <MappingFragment StoreEntitySet="TimePeriodSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="Stop" ColumnName="Stop" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActivityTimePeriod" TypeName="EmbracerEntities.ActivityTimePeriod" StoreEntitySet="TimePeriodSet">
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Activity_Id" />
+      </EndProperty>
+      <EndProperty Name="TimePeriod">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
 </Mapping>
