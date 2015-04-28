@@ -21,6 +21,7 @@ namespace Embracer
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public int AreaId { get; set; }
     
         public virtual ICollection<TimePeriod> TimePeriod { get; set; }
     }

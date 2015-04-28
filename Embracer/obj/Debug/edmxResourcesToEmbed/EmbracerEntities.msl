@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContainer">
+  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContext">
     <EntitySetMapping Name="ActivitySet">
       <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.Activity)">
         <MappingFragment StoreEntitySet="ActivitySet">
@@ -12,10 +12,10 @@
     <EntitySetMapping Name="TimePeriodSet">
       <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.TimePeriod)">
         <MappingFragment StoreEntitySet="TimePeriodSet">
+          <ScalarProperty Name="Id" ColumnName="Interval" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Start" ColumnName="Start" />
           <ScalarProperty Name="Stop" ColumnName="Stop" />
-          <ScalarProperty Name="Interval" ColumnName="Interval" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

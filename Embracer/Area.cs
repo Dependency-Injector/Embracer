@@ -12,13 +12,9 @@ namespace Embracer
     using System;
     using System.Collections.Generic;
     
-    public partial class TimePeriod
+    public partial class Area
     {
         public int Id { get; set; }
-        public System.DateTime Start { get; set; }
-        public System.DateTime Stop { get; set; }
-        public int Interval { get; set; }
-    
-        public virtual Activity Activity { get; set; }
+        public string Name { get; set; }
     }
 }

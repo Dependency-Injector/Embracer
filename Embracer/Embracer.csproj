@@ -57,6 +57,9 @@
     <Compile Include="Activity.cs">
       <DependentUpon>EmbracerEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Area.cs">
+      <DependentUpon>EmbracerEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmbracerEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

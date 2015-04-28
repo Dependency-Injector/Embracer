@@ -13,10 +13,10 @@ namespace Embracer
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmbracerEntitiesContainer : DbContext
+    public partial class EmbracerEntitiesContext : DbContext
     {
-        public EmbracerEntitiesContainer()
-            : base("name=EmbracerEntitiesContainer")
+        public EmbracerEntitiesContext()
+            : base("name=EmbracerEntitiesContext")
         {
         }
     
@@ -27,5 +27,6 @@ namespace Embracer
     
         public virtual DbSet<Activity> ActivitySet { get; set; }
         public virtual DbSet<TimePeriod> TimePeriodSet { get; set; }
+        public virtual DbSet<Area> AreaSet { get; set; }
     }
 }

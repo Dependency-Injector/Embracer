@@ -27,7 +27,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Start" Type="datetime" Nullable="false" />
     <Property Name="Stop" Type="datetime" Nullable="false" />
-    <Property Name="Interval" Type="smallint" Nullable="false" />
+    <Property Name="Interval" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Activity_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ActivityTimePeriod">
@@ -46,13 +46,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmbracerEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="EmbracerEntitiesContainer" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmbracerEntitiesContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActivitySet" EntityType="EmbracerEntities.Activity" />
           <EntitySet Name="TimePeriodSet" EntityType="EmbracerEntities.TimePeriod" />
           <AssociationSet Name="ActivityTimePeriod" Association="EmbracerEntities.ActivityTimePeriod">
             <End Role="Activity" EntitySet="ActivitySet" />
             <End Role="TimePeriod" EntitySet="TimePeriodSet" />
           </AssociationSet>
+          <EntitySet Name="AreaSet" EntityType="EmbracerEntities.Area" />
         </EntityContainer>
         <EntityType Name="Activity">
           <Key>
@@ -61,6 +62,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
           <NavigationProperty Name="TimePeriod" Relationship="EmbracerEntities.ActivityTimePeriod" FromRole="Activity" ToRole="TimePeriod" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TimePeriod">
           <Key>
@@ -69,19 +71,26 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Start" Type="DateTime" Nullable="false" />
           <Property Name="Stop" Type="DateTime" Nullable="false" />
-          <Property Name="Interval" Type="Int16" Nullable="false" />
+          <Property Name="Interval" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Activity" Relationship="EmbracerEntities.ActivityTimePeriod" FromRole="TimePeriod" ToRole="Activity" />
         </EntityType>
         <Association Name="ActivityTimePeriod">
           <End Type="EmbracerEntities.Activity" Role="Activity" Multiplicity="1" />
           <End Type="EmbracerEntities.TimePeriod" Role="TimePeriod" Multiplicity="*" />
         </Association>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContainer">
+  <EntityContainerMapping StorageEntityContainer="EmbracerEntitiesStoreContainer" CdmEntityContainer="EmbracerEntitiesContext">
     <EntitySetMapping Name="ActivitySet">
       <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.Activity)">
         <MappingFragment StoreEntitySet="ActivitySet">
@@ -93,10 +102,10 @@
     <EntitySetMapping Name="TimePeriodSet">
       <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.TimePeriod)">
         <MappingFragment StoreEntitySet="TimePeriodSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id" ColumnName="Interval" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Start" ColumnName="Start" />
           <ScalarProperty Name="Stop" ColumnName="Stop" />
-          <ScalarProperty Name="Interval" ColumnName="Interval" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -121,7 +130,7 @@
     <edmx:Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>

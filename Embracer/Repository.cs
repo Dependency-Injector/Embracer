@@ -9,12 +9,12 @@ namespace Embracer
     class Repository
     {
 
-        EmbracerEntitiesContainer context;
+        EmbracerEntitiesContext context;
 
         public Repository()
         {
 
-            context = new EmbracerEntitiesContainer();
+            context = new EmbracerEntitiesContext();
         }
 
 
@@ -38,6 +38,12 @@ namespace Embracer
         public IQueryable<TimePeriod> GetActivitiesHistory()
         {
             return context.TimePeriodSet;
+        }
+
+        public void RemoveActivity(Activity selectedActivity)
+        {
+            context.ActivitySet.Remove(selectedActivity);
+            context.SaveChanges();
         }
     }
 }
