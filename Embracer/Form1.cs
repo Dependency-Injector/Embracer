@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Embracer.Properties;
+using MetroFramework.Forms;
 
 namespace Embracer
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
         Repository repository;
         private DateTime startTime;
@@ -51,8 +52,7 @@ namespace Embracer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<TimePeriod> activitiesHistory = repository.GetActivitiesHistory().ToList();
-            activityHistoryGridView.DataSource = activitiesHistory;
+            RefreshHistoryGridView();
         }
 
         private void startActivityButton_Click(object sender, EventArgs e)
@@ -68,26 +68,49 @@ namespace Embracer
 
         private void stopActivityButton_Click(object sender, EventArgs e)
         {
+            StopTracker();
+        }
+
+        private void StopTracker()
+        {
+
             activityTimer.Stop();
             endTime = DateTime.Now;
             endTimeValueLabel.Text = endTime.ToLongTimeString();
+            saveActivityButton.Enabled = true;
+        
         }
 
         private void saveActivityButton_Click(object sender, EventArgs e)
         {
+            ReportActivityTime();
+
+        }
+
+        private void ReportActivityTime()
+        {
             TimePeriod period = new TimePeriod();
             period.Start = startTime;
             period.Stop = endTime;
-            period.Interval = (startTime - endTime).Minutes;
+            period.Interval = (short)((endTime - endTime).TotalSeconds);
 
             currentActivity.TimePeriod.Add(period);
 
             repository.UpdateActivity(currentActivity);
+
+            ResetTracker();
+            RefreshHistoryGridView();
         }
 
         private void activitiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Activity selecteActivty = activitiesListBox.SelectedItem as Activity;
+            SelectedActivityChanged(selecteActivty);
+        }
+
+        private void SelectedActivityChanged(Activity activity)
+        {
+            activityInProgressLabel.Text = Text = activity.Name;
         }
 
         private void resetActivityButton_Click(object sender, EventArgs e)
@@ -118,7 +141,7 @@ namespace Embracer
             pauseActivityButton.Enabled = false;
             stopActivityButton.Enabled = false;
             startActivityButton.Enabled = true;
-            startTimeValueLabel.Text = Resources.EmptyTime;
+            activityInProgressLabel.Text = Resources.EmptyTime;
             endTimeValueLabel.Text = Resources.EmptyTime;
             timeLeftValueLabel.Text = Resources.EmptyTime;
 
@@ -140,6 +163,26 @@ namespace Embracer
         {
             List<Activity> activities = repository.GetActivities().ToList();
             activitiesListBox.DataSource = activities;
+        }
+
+        private void RefreshHistoryGridView()
+        {
+            activityHistoryGridView.DataSource = null;
+            List<TimePeriod> activitiesHistory = repository.GetActivitiesHistory().ToList();
+            activityHistoryGridView.DataSource = activitiesHistory;
+        }
+
+        private void activityHistoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {//
+              //  e.Value = (int)e.Value/60;
+            }
+        }
+
+        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

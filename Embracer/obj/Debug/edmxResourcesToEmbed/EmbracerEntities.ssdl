@@ -22,7 +22,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Start" Type="datetime" Nullable="false" />
     <Property Name="Stop" Type="datetime" Nullable="false" />
-    <Property Name="Interval" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Interval" Type="smallint" Nullable="false" StoreGeneratedPattern="None" />
     <Property Name="Activity_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="ActivityTimePeriod">

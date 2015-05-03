@@ -12,7 +12,7 @@
     <EntitySetMapping Name="TimePeriodSet">
       <EntityTypeMapping TypeName="IsTypeOf(EmbracerEntities.TimePeriod)">
         <MappingFragment StoreEntitySet="TimePeriodSet">
-          <ScalarProperty Name="Id" ColumnName="Interval" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Start" ColumnName="Start" />
           <ScalarProperty Name="Stop" ColumnName="Stop" />

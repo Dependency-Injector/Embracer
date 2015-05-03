@@ -10,3 +10,7 @@ D:\Projekty GIT\Embracer\Embracer\bin\Debug\EntityFramework.dll
 D:\Projekty GIT\Embracer\Embracer\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projekty GIT\Embracer\Embracer\bin\Debug\EntityFramework.xml
 D:\Projekty GIT\Embracer\Embracer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.csprojResolveAssemblyReference.cache
+D:\Projekty GIT\Embracer\Embracer\bin\Debug\MetroFramework.dll
+D:\Projekty GIT\Embracer\Embracer\obj\Debug\Embracer.Form2.resources
+D:\Projekty GIT\Embracer\Embracer\bin\Debug\MetroFramework.Design.dll

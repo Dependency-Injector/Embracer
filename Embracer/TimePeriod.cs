@@ -17,7 +17,7 @@ namespace Embracer
         public int Id { get; set; }
         public System.DateTime Start { get; set; }
         public System.DateTime Stop { get; set; }
-        public int Interval { get; set; }
+        public short Interval { get; set; }
     
         public virtual Activity Activity { get; set; }
     }

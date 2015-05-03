@@ -27,6 +27,5 @@ namespace Embracer
     
         public virtual DbSet<Activity> ActivitySet { get; set; }
         public virtual DbSet<TimePeriod> TimePeriodSet { get; set; }
-        public virtual DbSet<Area> AreaSet { get; set; }
     }
 }

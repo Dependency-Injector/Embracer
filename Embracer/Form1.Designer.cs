@@ -1,4 +1,7 @@
-﻿namespace Embracer
+﻿using System.Windows.Forms;
+using MetroFramework.Controls;
+
+namespace Embracer
 {
     partial class Form1
     {
@@ -28,191 +31,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.activityHistoryGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.intervalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timePeriodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.reportTimeLabel = new System.Windows.Forms.Label();
-            this.startTimeLabel = new System.Windows.Forms.Label();
-            this.startActivityButton = new System.Windows.Forms.Button();
-            this.timeLeftValueLabel = new System.Windows.Forms.Label();
-            this.resetActivityButton = new System.Windows.Forms.Button();
-            this.saveActivityButton = new System.Windows.Forms.Button();
-            this.pauseActivityButton = new System.Windows.Forms.Button();
-            this.stopActivityButton = new System.Windows.Forms.Button();
-            this.endTimeValueLabel = new System.Windows.Forms.Label();
-            this.timeLeftLabel = new System.Windows.Forms.Label();
-            this.startTimeValueLabel = new System.Windows.Forms.Label();
-            this.endTimeLabel = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.whatAreYouDoingLabel = new System.Windows.Forms.Label();
-            this.activitiesListBox = new System.Windows.Forms.ListBox();
-            this.newActivityTextBox = new System.Windows.Forms.TextBox();
-            this.addActivityButton = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.removeActivityButton = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.timeTrackerPanel = new MetroFramework.Controls.MetroPanel();
+            this.inProgressLabel = new MetroLabel();
+            this.startTimeLabel = new MetroLabel();
+            this.startActivityButton = new MetroButton();
+            this.timeLeftValueLabel = new MetroLabel();
+            this.resetActivityButton = new MetroButton();
+            this.saveActivityButton = new MetroButton();
+            this.pauseActivityButton = new MetroButton();
+            this.stopActivityButton = new MetroButton();
+            this.startTimeValueLabel = new MetroLabel();
+            this.endTimeValueLabel = new MetroLabel();
+            this.timeLeftLabel = new MetroLabel();
+            this.activityInProgressLabel = new MetroLabel();
+            this.endTimeLabel = new MetroLabel();
+            this.activitiesListPanel = new MetroFramework.Controls.MetroPanel();
+            this.whatAreYouDoingLabel = new MetroLabel();
+            this.activitiesListBox = new ListBox();
+            this.newActivityTextBox = new MetroTextBox();
+            this.removeActivityButton = new MetroButton();
+            this.addActivityButton = new MetroButton();
+            this.mainContainerTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.timeTrackingTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.tasksTabPage = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.activityHistoryGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timePeriodBindingSource)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.timeTrackerPanel.SuspendLayout();
+            this.activitiesListPanel.SuspendLayout();
+            this.mainContainerTabControl.SuspendLayout();
+            this.timeTrackingTabPage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 61);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(919, 347);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel6);
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(911, 321);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Aktywności";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(262, 22);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(235, 71);
-            this.panel6.TabIndex = 16;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.activityHistoryGridView);
-            this.panel5.Location = new System.Drawing.Point(512, 22);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(391, 277);
-            this.panel5.TabIndex = 15;
             // 
             // activityHistoryGridView
             // 
-            this.activityHistoryGridView.AutoGenerateColumns = false;
+            this.activityHistoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.activityHistoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.activityHistoryGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.startDataGridViewTextBoxColumn,
-            this.stopDataGridViewTextBoxColumn,
-            this.intervalDataGridViewTextBoxColumn,
-            this.activityDataGridViewTextBoxColumn});
-            this.activityHistoryGridView.DataSource = this.timePeriodBindingSource;
-            this.activityHistoryGridView.Location = new System.Drawing.Point(14, 16);
+            this.activityHistoryGridView.Location = new System.Drawing.Point(590, 4);
+            this.activityHistoryGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.activityHistoryGridView.Name = "activityHistoryGridView";
-            this.activityHistoryGridView.Size = new System.Drawing.Size(374, 244);
+            this.activityHistoryGridView.Size = new System.Drawing.Size(541, 487);
             this.activityHistoryGridView.TabIndex = 0;
+            this.activityHistoryGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.activityHistoryGridView_CellFormatting);
             // 
-            // idDataGridViewTextBoxColumn
+            // timeTrackerPanel
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.timeTrackerPanel.Controls.Add(this.inProgressLabel);
+            this.timeTrackerPanel.Controls.Add(this.startTimeLabel);
+            this.timeTrackerPanel.Controls.Add(this.startActivityButton);
+            this.timeTrackerPanel.Controls.Add(this.timeLeftValueLabel);
+            this.timeTrackerPanel.Controls.Add(this.resetActivityButton);
+            this.timeTrackerPanel.Controls.Add(this.saveActivityButton);
+            this.timeTrackerPanel.Controls.Add(this.pauseActivityButton);
+            this.timeTrackerPanel.Controls.Add(this.stopActivityButton);
+            this.timeTrackerPanel.Controls.Add(this.startTimeValueLabel);
+            this.timeTrackerPanel.Controls.Add(this.endTimeValueLabel);
+            this.timeTrackerPanel.Controls.Add(this.timeLeftLabel);
+            this.timeTrackerPanel.Controls.Add(this.activityInProgressLabel);
+            this.timeTrackerPanel.Controls.Add(this.endTimeLabel);
+            this.timeTrackerPanel.HorizontalScrollbarBarColor = true;
+            this.timeTrackerPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.timeTrackerPanel.HorizontalScrollbarSize = 8;
+            this.timeTrackerPanel.Location = new System.Drawing.Point(309, 4);
+            this.timeTrackerPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.timeTrackerPanel.Name = "timeTrackerPanel";
+            this.timeTrackerPanel.Size = new System.Drawing.Size(275, 487);
+            this.timeTrackerPanel.Style = MetroFramework.MetroColorStyle.Blue;
+            this.timeTrackerPanel.TabIndex = 14;
+            this.timeTrackerPanel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.timeTrackerPanel.VerticalScrollbarBarColor = true;
+            this.timeTrackerPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.timeTrackerPanel.VerticalScrollbarSize = 9;
             // 
-            // startDataGridViewTextBoxColumn
+            // inProgressLabel
             // 
-            this.startDataGridViewTextBoxColumn.DataPropertyName = "Start";
-            this.startDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.startDataGridViewTextBoxColumn.Name = "startDataGridViewTextBoxColumn";
-            // 
-            // stopDataGridViewTextBoxColumn
-            // 
-            this.stopDataGridViewTextBoxColumn.DataPropertyName = "Stop";
-            this.stopDataGridViewTextBoxColumn.HeaderText = "Stop";
-            this.stopDataGridViewTextBoxColumn.Name = "stopDataGridViewTextBoxColumn";
-            this.stopDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // intervalDataGridViewTextBoxColumn
-            // 
-            this.intervalDataGridViewTextBoxColumn.DataPropertyName = "Interval";
-            this.intervalDataGridViewTextBoxColumn.HeaderText = "Czas";
-            this.intervalDataGridViewTextBoxColumn.Name = "intervalDataGridViewTextBoxColumn";
-            // 
-            // activityDataGridViewTextBoxColumn
-            // 
-            this.activityDataGridViewTextBoxColumn.DataPropertyName = "Activity";
-            this.activityDataGridViewTextBoxColumn.HeaderText = "Activity";
-            this.activityDataGridViewTextBoxColumn.Name = "activityDataGridViewTextBoxColumn";
-            // 
-            // timePeriodBindingSource
-            // 
-            this.timePeriodBindingSource.DataSource = typeof(Embracer.TimePeriod);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.reportTimeLabel);
-            this.panel4.Controls.Add(this.startTimeLabel);
-            this.panel4.Controls.Add(this.startActivityButton);
-            this.panel4.Controls.Add(this.timeLeftValueLabel);
-            this.panel4.Controls.Add(this.resetActivityButton);
-            this.panel4.Controls.Add(this.saveActivityButton);
-            this.panel4.Controls.Add(this.pauseActivityButton);
-            this.panel4.Controls.Add(this.stopActivityButton);
-            this.panel4.Controls.Add(this.endTimeValueLabel);
-            this.panel4.Controls.Add(this.timeLeftLabel);
-            this.panel4.Controls.Add(this.startTimeValueLabel);
-            this.panel4.Controls.Add(this.endTimeLabel);
-            this.panel4.Location = new System.Drawing.Point(261, 99);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(236, 200);
-            this.panel4.TabIndex = 14;
-            // 
-            // reportTimeLabel
-            // 
-            this.reportTimeLabel.AutoSize = true;
-            this.reportTimeLabel.Location = new System.Drawing.Point(17, 19);
-            this.reportTimeLabel.Name = "reportTimeLabel";
-            this.reportTimeLabel.Size = new System.Drawing.Size(47, 13);
-            this.reportTimeLabel.TabIndex = 13;
-            this.reportTimeLabel.Text = "Raportuj";
+            this.inProgressLabel.AutoSize = true;
+            this.inProgressLabel.ForeColor = System.Drawing.Color.White;
+            this.inProgressLabel.Location = new System.Drawing.Point(20, 25);
+            this.inProgressLabel.Name = "inProgressLabel";
+            this.inProgressLabel.Size = new System.Drawing.Size(62, 17);
+            this.inProgressLabel.TabIndex = 13;
+            this.inProgressLabel.Text = "W trakcie";
             // 
             // startTimeLabel
             // 
             this.startTimeLabel.AutoSize = true;
-            this.startTimeLabel.Location = new System.Drawing.Point(17, 48);
+            this.startTimeLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.startTimeLabel.Location = new System.Drawing.Point(20, 59);
             this.startTimeLabel.Name = "startTimeLabel";
-            this.startTimeLabel.Size = new System.Drawing.Size(93, 13);
+            this.startTimeLabel.Size = new System.Drawing.Size(35, 17);
             this.startTimeLabel.TabIndex = 12;
-            this.startTimeLabel.Text = "Czas rozpoczęcia:";
+            this.startTimeLabel.Text = "Start";
             // 
             // startActivityButton
             // 
-            this.startActivityButton.Location = new System.Drawing.Point(162, 127);
+            this.startActivityButton.Location = new System.Drawing.Point(189, 166);
+            this.startActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.startActivityButton.Name = "startActivityButton";
-            this.startActivityButton.Size = new System.Drawing.Size(67, 23);
+            this.startActivityButton.Size = new System.Drawing.Size(78, 30);
             this.startActivityButton.TabIndex = 8;
             this.startActivityButton.Text = "Start";
             this.startActivityButton.UseVisualStyleBackColor = true;
@@ -221,17 +136,19 @@
             // timeLeftValueLabel
             // 
             this.timeLeftValueLabel.AutoSize = true;
-            this.timeLeftValueLabel.Location = new System.Drawing.Point(159, 98);
+            this.timeLeftValueLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.timeLeftValueLabel.Location = new System.Drawing.Point(103, 127);
             this.timeLeftValueLabel.Name = "timeLeftValueLabel";
-            this.timeLeftValueLabel.Size = new System.Drawing.Size(22, 13);
+            this.timeLeftValueLabel.Size = new System.Drawing.Size(31, 17);
             this.timeLeftValueLabel.TabIndex = 12;
             this.timeLeftValueLabel.Text = "--:--";
             // 
             // resetActivityButton
             // 
-            this.resetActivityButton.Location = new System.Drawing.Point(91, 158);
+            this.resetActivityButton.Location = new System.Drawing.Point(23, 209);
+            this.resetActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.resetActivityButton.Name = "resetActivityButton";
-            this.resetActivityButton.Size = new System.Drawing.Size(67, 23);
+            this.resetActivityButton.Size = new System.Drawing.Size(78, 30);
             this.resetActivityButton.TabIndex = 10;
             this.resetActivityButton.Text = "Reset";
             this.resetActivityButton.UseVisualStyleBackColor = true;
@@ -239,9 +156,11 @@
             // 
             // saveActivityButton
             // 
-            this.saveActivityButton.Location = new System.Drawing.Point(162, 158);
+            this.saveActivityButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.saveActivityButton.Location = new System.Drawing.Point(189, 207);
+            this.saveActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saveActivityButton.Name = "saveActivityButton";
-            this.saveActivityButton.Size = new System.Drawing.Size(67, 23);
+            this.saveActivityButton.Size = new System.Drawing.Size(78, 30);
             this.saveActivityButton.TabIndex = 10;
             this.saveActivityButton.Text = "Zapisz";
             this.saveActivityButton.UseVisualStyleBackColor = true;
@@ -249,9 +168,10 @@
             // 
             // pauseActivityButton
             // 
-            this.pauseActivityButton.Location = new System.Drawing.Point(91, 127);
+            this.pauseActivityButton.Location = new System.Drawing.Point(106, 166);
+            this.pauseActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pauseActivityButton.Name = "pauseActivityButton";
-            this.pauseActivityButton.Size = new System.Drawing.Size(67, 23);
+            this.pauseActivityButton.Size = new System.Drawing.Size(78, 30);
             this.pauseActivityButton.TabIndex = 9;
             this.pauseActivityButton.Text = "Pauza";
             this.pauseActivityButton.UseVisualStyleBackColor = true;
@@ -259,250 +179,236 @@
             // 
             // stopActivityButton
             // 
-            this.stopActivityButton.Location = new System.Drawing.Point(20, 127);
+            this.stopActivityButton.Location = new System.Drawing.Point(23, 166);
+            this.stopActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.stopActivityButton.Name = "stopActivityButton";
-            this.stopActivityButton.Size = new System.Drawing.Size(67, 23);
+            this.stopActivityButton.Size = new System.Drawing.Size(78, 30);
             this.stopActivityButton.TabIndex = 9;
             this.stopActivityButton.Text = "Stop";
             this.stopActivityButton.UseVisualStyleBackColor = true;
             this.stopActivityButton.Click += new System.EventHandler(this.stopActivityButton_Click);
             // 
+            // startTimeValueLabel
+            // 
+            this.startTimeValueLabel.AutoSize = true;
+            this.startTimeValueLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.startTimeValueLabel.Location = new System.Drawing.Point(103, 59);
+            this.startTimeValueLabel.Name = "startTimeValueLabel";
+            this.startTimeValueLabel.Size = new System.Drawing.Size(31, 17);
+            this.startTimeValueLabel.TabIndex = 12;
+            this.startTimeValueLabel.Text = "--:--";
+            // 
             // endTimeValueLabel
             // 
             this.endTimeValueLabel.AutoSize = true;
-            this.endTimeValueLabel.Location = new System.Drawing.Point(159, 73);
+            this.endTimeValueLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.endTimeValueLabel.Location = new System.Drawing.Point(103, 94);
             this.endTimeValueLabel.Name = "endTimeValueLabel";
-            this.endTimeValueLabel.Size = new System.Drawing.Size(22, 13);
+            this.endTimeValueLabel.Size = new System.Drawing.Size(31, 17);
             this.endTimeValueLabel.TabIndex = 12;
             this.endTimeValueLabel.Text = "--:--";
             // 
             // timeLeftLabel
             // 
             this.timeLeftLabel.AutoSize = true;
-            this.timeLeftLabel.Location = new System.Drawing.Point(17, 98);
+            this.timeLeftLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.timeLeftLabel.Location = new System.Drawing.Point(20, 127);
             this.timeLeftLabel.Name = "timeLeftLabel";
-            this.timeLeftLabel.Size = new System.Drawing.Size(55, 13);
+            this.timeLeftLabel.Size = new System.Drawing.Size(62, 17);
             this.timeLeftLabel.TabIndex = 12;
             this.timeLeftLabel.Text = "Upłynęło:";
             // 
-            // startTimeValueLabel
+            // activityInProgressLabel
             // 
-            this.startTimeValueLabel.AutoSize = true;
-            this.startTimeValueLabel.Location = new System.Drawing.Point(159, 48);
-            this.startTimeValueLabel.Name = "startTimeValueLabel";
-            this.startTimeValueLabel.Size = new System.Drawing.Size(22, 13);
-            this.startTimeValueLabel.TabIndex = 12;
-            this.startTimeValueLabel.Text = "--:--";
+            this.activityInProgressLabel.AutoSize = true;
+            this.activityInProgressLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.activityInProgressLabel.Location = new System.Drawing.Point(103, 25);
+            this.activityInProgressLabel.Name = "activityInProgressLabel";
+            this.activityInProgressLabel.Size = new System.Drawing.Size(13, 17);
+            this.activityInProgressLabel.TabIndex = 12;
+            this.activityInProgressLabel.Text = "-";
             // 
             // endTimeLabel
             // 
             this.endTimeLabel.AutoSize = true;
-            this.endTimeLabel.Location = new System.Drawing.Point(17, 73);
+            this.endTimeLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.endTimeLabel.Location = new System.Drawing.Point(20, 93);
             this.endTimeLabel.Name = "endTimeLabel";
-            this.endTimeLabel.Size = new System.Drawing.Size(96, 13);
+            this.endTimeLabel.Size = new System.Drawing.Size(47, 17);
             this.endTimeLabel.TabIndex = 12;
-            this.endTimeLabel.Text = "Czas zakończenia:";
+            this.endTimeLabel.Text = "Koniec";
             // 
-            // panel3
+            // activitiesListPanel
             // 
-            this.panel3.Controls.Add(this.whatAreYouDoingLabel);
-            this.panel3.Controls.Add(this.activitiesListBox);
-            this.panel3.Controls.Add(this.newActivityTextBox);
-            this.panel3.Controls.Add(this.removeActivityButton);
-            this.panel3.Controls.Add(this.addActivityButton);
-            this.panel3.Location = new System.Drawing.Point(32, 22);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(223, 277);
-            this.panel3.TabIndex = 13;
+            this.activitiesListPanel.Controls.Add(this.whatAreYouDoingLabel);
+            this.activitiesListPanel.Controls.Add(this.activitiesListBox);
+            this.activitiesListPanel.Controls.Add(this.newActivityTextBox);
+            this.activitiesListPanel.Controls.Add(this.removeActivityButton);
+            this.activitiesListPanel.Controls.Add(this.addActivityButton);
+            this.activitiesListPanel.HorizontalScrollbarBarColor = true;
+            this.activitiesListPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.activitiesListPanel.HorizontalScrollbarSize = 8;
+            this.activitiesListPanel.Location = new System.Drawing.Point(0, 4);
+            this.activitiesListPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.activitiesListPanel.Name = "activitiesListPanel";
+            this.activitiesListPanel.Size = new System.Drawing.Size(303, 487);
+            this.activitiesListPanel.Style = MetroFramework.MetroColorStyle.Orange;
+            this.activitiesListPanel.TabIndex = 13;
+            this.activitiesListPanel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.activitiesListPanel.VerticalScrollbarBarColor = true;
+            this.activitiesListPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.activitiesListPanel.VerticalScrollbarSize = 9;
             // 
             // whatAreYouDoingLabel
             // 
             this.whatAreYouDoingLabel.AutoSize = true;
-            this.whatAreYouDoingLabel.Location = new System.Drawing.Point(16, 16);
+            this.whatAreYouDoingLabel.ForeColor = System.Drawing.Color.GreenYellow;
+            this.whatAreYouDoingLabel.Location = new System.Drawing.Point(19, 21);
             this.whatAreYouDoingLabel.Name = "whatAreYouDoingLabel";
-            this.whatAreYouDoingLabel.Size = new System.Drawing.Size(94, 13);
+            this.whatAreYouDoingLabel.Size = new System.Drawing.Size(116, 17);
             this.whatAreYouDoingLabel.TabIndex = 0;
             this.whatAreYouDoingLabel.Text = "Co będziesz robił?";
             // 
             // activitiesListBox
             // 
             this.activitiesListBox.FormattingEnabled = true;
-            this.activitiesListBox.Location = new System.Drawing.Point(16, 41);
+            this.activitiesListBox.ItemHeight = 17;
+            this.activitiesListBox.Location = new System.Drawing.Point(19, 54);
+            this.activitiesListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.activitiesListBox.Name = "activitiesListBox";
-            this.activitiesListBox.Size = new System.Drawing.Size(190, 186);
+            this.activitiesListBox.Size = new System.Drawing.Size(265, 242);
             this.activitiesListBox.TabIndex = 1;
             this.activitiesListBox.SelectedIndexChanged += new System.EventHandler(this.activitiesListBox_SelectedIndexChanged);
             // 
             // newActivityTextBox
             // 
-            this.newActivityTextBox.Location = new System.Drawing.Point(16, 237);
+            this.newActivityTextBox.Location = new System.Drawing.Point(19, 310);
+            this.newActivityTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.newActivityTextBox.Name = "newActivityTextBox";
-            this.newActivityTextBox.Size = new System.Drawing.Size(112, 20);
+            this.newActivityTextBox.Size = new System.Drawing.Size(160, 25);
             this.newActivityTextBox.TabIndex = 2;
-            this.newActivityTextBox.Text = "Nie ma na liście?";
-            // 
-            // addActivityButton
-            // 
-            this.addActivityButton.Location = new System.Drawing.Point(131, 233);
-            this.addActivityButton.Name = "addActivityButton";
-            this.addActivityButton.Size = new System.Drawing.Size(75, 27);
-            this.addActivityButton.TabIndex = 3;
-            this.addActivityButton.Text = "Dodaj";
-            this.addActivityButton.UseVisualStyleBackColor = true;
-            this.addActivityButton.Click += new System.EventHandler(this.addActivityButton_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(911, 321);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Location = new System.Drawing.Point(355, 110);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 12;
-            this.panel2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(92, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(19, 32);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 6;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(19, 69);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 7;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.titleLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(919, 61);
-            this.panel1.TabIndex = 1;
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(211, 12);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(433, 37);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "OGARNIĘTOŚĆ TO DOSKONAŁOŚĆ";
+            this.newActivityTextBox.Text = "Nie ma na liście? Nazwij i";
             // 
             // removeActivityButton
             // 
-            this.removeActivityButton.Location = new System.Drawing.Point(131, 12);
+            this.removeActivityButton.Location = new System.Drawing.Point(187, 16);
+            this.removeActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.removeActivityButton.Name = "removeActivityButton";
-            this.removeActivityButton.Size = new System.Drawing.Size(75, 20);
+            this.removeActivityButton.Size = new System.Drawing.Size(98, 26);
             this.removeActivityButton.TabIndex = 3;
             this.removeActivityButton.Text = "Usuń";
             this.removeActivityButton.UseVisualStyleBackColor = true;
             this.removeActivityButton.Click += new System.EventHandler(this.removeActivityButton_Click);
             // 
+            // addActivityButton
+            // 
+            this.addActivityButton.Location = new System.Drawing.Point(187, 305);
+            this.addActivityButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addActivityButton.Name = "addActivityButton";
+            this.addActivityButton.Size = new System.Drawing.Size(98, 35);
+            this.addActivityButton.TabIndex = 3;
+            this.addActivityButton.Text = "Dodaj";
+            this.addActivityButton.UseVisualStyleBackColor = true;
+            this.addActivityButton.Click += new System.EventHandler(this.addActivityButton_Click);
+            // 
+            // mainContainerTabControl
+            // 
+            this.mainContainerTabControl.Controls.Add(this.timeTrackingTabPage);
+            this.mainContainerTabControl.Controls.Add(this.tasksTabPage);
+            this.mainContainerTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainContainerTabControl.Location = new System.Drawing.Point(20, 60);
+            this.mainContainerTabControl.Name = "mainContainerTabControl";
+            this.mainContainerTabControl.SelectedIndex = 0;
+            this.mainContainerTabControl.Size = new System.Drawing.Size(1135, 533);
+            this.mainContainerTabControl.TabIndex = 1;
+            this.mainContainerTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.mainContainerTabControl.UseSelectable = true;
+            // 
+            // timeTrackingTabPage
+            // 
+            this.timeTrackingTabPage.Controls.Add(this.activityHistoryGridView);
+            this.timeTrackingTabPage.Controls.Add(this.timeTrackerPanel);
+            this.timeTrackingTabPage.Controls.Add(this.activitiesListPanel);
+            this.timeTrackingTabPage.HorizontalScrollbarBarColor = true;
+            this.timeTrackingTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.timeTrackingTabPage.HorizontalScrollbarSize = 4;
+            this.timeTrackingTabPage.Location = new System.Drawing.Point(4, 38);
+            this.timeTrackingTabPage.Name = "timeTrackingTabPage";
+            this.timeTrackingTabPage.Size = new System.Drawing.Size(1127, 491);
+            this.timeTrackingTabPage.Style = MetroFramework.MetroColorStyle.Green;
+            this.timeTrackingTabPage.TabIndex = 0;
+            this.timeTrackingTabPage.Text = "Time tracking";
+            this.timeTrackingTabPage.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.timeTrackingTabPage.VerticalScrollbarBarColor = true;
+            this.timeTrackingTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.timeTrackingTabPage.VerticalScrollbarSize = 6;
+            // 
+            // tasksTabPage
+            // 
+            this.tasksTabPage.HorizontalScrollbarBarColor = true;
+            this.tasksTabPage.HorizontalScrollbarHighlightOnWheel = false;
+            this.tasksTabPage.HorizontalScrollbarSize = 6;
+            this.tasksTabPage.Location = new System.Drawing.Point(4, 38);
+            this.tasksTabPage.Name = "tasksTabPage";
+            this.tasksTabPage.Size = new System.Drawing.Size(1127, 491);
+            this.tasksTabPage.Style = MetroFramework.MetroColorStyle.Lime;
+            this.tasksTabPage.TabIndex = 1;
+            this.tasksTabPage.Text = "Tasks";
+            this.tasksTabPage.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.tasksTabPage.VerticalScrollbarBarColor = true;
+            this.tasksTabPage.VerticalScrollbarHighlightOnWheel = false;
+            this.tasksTabPage.VerticalScrollbarSize = 8;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 408);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1175, 613);
+            this.Controls.Add(this.mainContainerTabControl);
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.Text = "Ogarniętość to doskonałość";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.activityHistoryGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timePeriodBindingSource)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.timeTrackerPanel.ResumeLayout(false);
+            this.timeTrackerPanel.PerformLayout();
+            this.activitiesListPanel.ResumeLayout(false);
+            this.activitiesListPanel.PerformLayout();
+            this.mainContainerTabControl.ResumeLayout(false);
+            this.timeTrackingTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView activityHistoryGridView;
-        private System.Windows.Forms.Panel panel4;
+        private MetroPanel timeTrackerPanel;
         private System.Windows.Forms.Label startTimeLabel;
-        private System.Windows.Forms.Button startActivityButton;
-        private System.Windows.Forms.Label timeLeftValueLabel;
-        private System.Windows.Forms.Button stopActivityButton;
-        private System.Windows.Forms.Label endTimeValueLabel;
-        private System.Windows.Forms.Button saveActivityButton;
-        private System.Windows.Forms.Label timeLeftLabel;
-        private System.Windows.Forms.Label startTimeValueLabel;
-        private System.Windows.Forms.Label endTimeLabel;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label whatAreYouDoingLabel;
+        private MetroButton startActivityButton;
+        private MetroLabel timeLeftValueLabel;
+        private MetroButton stopActivityButton;
+        private MetroLabel endTimeValueLabel;
+        private MetroButton saveActivityButton;
+        private MetroLabel timeLeftLabel;
+        private MetroLabel activityInProgressLabel;
+        private MetroLabel endTimeLabel;
+        private MetroPanel activitiesListPanel;
+        private MetroLabel whatAreYouDoingLabel;
         private System.Windows.Forms.ListBox activitiesListBox;
-        private System.Windows.Forms.TextBox newActivityTextBox;
-        private System.Windows.Forms.Button addActivityButton;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stopDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn intervalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn activityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource timePeriodBindingSource;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label reportTimeLabel;
-        private System.Windows.Forms.Button resetActivityButton;
-        private System.Windows.Forms.Button pauseActivityButton;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button removeActivityButton;
+        private MetroTextBox newActivityTextBox;
+        private MetroButton addActivityButton;
+        private MetroLabel inProgressLabel;
+        private MetroButton resetActivityButton;
+        private MetroButton pauseActivityButton;
+        private MetroButton removeActivityButton;
+        private System.Windows.Forms.Label startTimeValueLabel;
+        private MetroFramework.Controls.MetroTabControl mainContainerTabControl;
+        private MetroFramework.Controls.MetroTabPage timeTrackingTabPage;
+        private MetroFramework.Controls.MetroTabPage tasksTabPage;
     }
 }
 
